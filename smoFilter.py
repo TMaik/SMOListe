@@ -42,22 +42,20 @@ reader = csv.reader( open( 'SMO_NB_REPORT_22-11-2018-01-00.csv', 'r' ),delimiter
 # Kopiere Überschriften aus csv Datei in Tabellenblatt
 wsMaik	= workbook.add_worksheet( 'Maik' )
 print( 'erzeuge wsMaik' )
-for r in reader: 
-        for c in r:
-                if r.index() > 0: # TODO: iterieren durch liste oder reader
-                        break
-                wsMaik.write( c )
 
-filtered = list(
-                # Rufnummer = [16] startet mit FXP
-                filter( lambda p: p[16].strip().startswith( 'FXP' ), reader
-                )
-           )
+# TODO: Liste konvertieren etc. !!!
+wsMaik.write( next( reader ) )
+
+#filtered = list(
+#                # Rufnummer = [16] startet mit FXP
+#                filter( lambda p: p[16].strip().startswith( 'FXP' ), reader
+#                )
+#           )
 
 
 
-for i in filtered[ 0 : 1 ] :
-        print( i )
+# for i in filtered[ 0 : 1 ] :
+#        print( i )
 
 
 wsJutta = workbook.add_worksheet( 'Jutta' )
